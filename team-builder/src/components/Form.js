@@ -10,8 +10,25 @@ const TeamMemberForm = props => {
     return (
         <form>
             <label>Name</label>
+            <input
+                name="name"
+                id="name"
+                type="name"
+                placeholder="Name"
+            />
             <label>Email</label>
+            <input
+                name="email"
+                id="email"
+                type="email"
+                placeholder="Email" />
             <label>Role</label>
+            <input
+                name="role"
+                id="role"
+                type="role"
+                placeholder="Role" />
+            <button type="submit">Submit</button>
         </form>
     )
 }
