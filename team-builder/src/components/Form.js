@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const TeamMemberForm = props => {
     console.log("member props", props);
@@ -16,9 +17,9 @@ const TeamMemberForm = props => {
         setMember({ name: "", email: "", role: "" });
     };
     return (
-        <form onSubmit={submitForm}>
-            <label htmlFor="name">Name</label>
-            <input
+        <Form onSubmit={submitForm}>
+            <Label htmlFor="name">Name</Label>
+            <Input
                 name="name"
                 id="name"
                 type="name"
@@ -26,24 +27,24 @@ const TeamMemberForm = props => {
                 onChange={changeHandler}
                 value={member.title}
             />
-            <label htmlFor="email">Email</label>
-            <input
+            <Label htmlFor="email">Email</Label>
+            <Input
                 name="email"
                 id="email"
                 type="email"
                 placeholder="Email"
                 onChange={changeHandler}
                 value={member.email} />
-            <label htmlFor="role">Role</label>
-            <input
+            <Label htmlFor="role">Role</Label>
+            <Input
                 name="role"
                 id="role"
                 type="role"
                 placeholder="Role"
                 onChange={changeHandler}
                 value={member.role} />
-            <button type="submit">Submit</button>
-        </form>
+            <Button type="submit">Submit</Button>
+        </Form>
     )
 }
 export default TeamMemberForm;
