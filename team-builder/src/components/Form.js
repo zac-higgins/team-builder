@@ -7,27 +7,41 @@ const TeamMemberForm = props => {
         email: "",
         role: ""
     });
+    const changeHandler = event => {
+        setMember({ ...member, [event.target.name]: event.target.value });
+    };
+    const submitForm = event => {
+        event.preventDefault();
+        //props.addNewMember(member); <---- not sure
+        setMember({ name: "", email: "", role: "" });
+    };
     return (
-        <form>
-            <label>Name</label>
+        <form onSubmit={submitForm}>
+            <label htmlFor="name">Name</label>
             <input
                 name="name"
                 id="name"
                 type="name"
                 placeholder="Name"
+                onChange={changeHandler}
+                value={member.title}
             />
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
                 name="email"
                 id="email"
                 type="email"
-                placeholder="Email" />
-            <label>Role</label>
+                placeholder="Email"
+                onChange={changeHandler}
+                value={member.email} />
+            <label htmlFor="role">Role</label>
             <input
                 name="role"
                 id="role"
                 type="role"
-                placeholder="Role" />
+                placeholder="Role"
+                onChange={changeHandler}
+                value={member.role} />
             <button type="submit">Submit</button>
         </form>
     )
