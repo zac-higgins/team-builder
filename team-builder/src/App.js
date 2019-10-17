@@ -11,15 +11,16 @@ function App() {
     axios
       .get('https://randomuser.me/api/?results=5')
       .then(res => {
-        console.log("random people", res.data.results[0].name.first);
-        res.data.results.map((person) => {
-          setMembers({ name: person.name.first, email: person.email, role: "developer" });
+        console.log("random people", res.data.results);
+        const peopleArray = res.data.results
+        peopleArray.map((person) => {
+          setMembers(members => [...members, { name: person.name.first, email: person.email, role: "developer" }]);
         })
       })
       .catch(err => {
         console.log("The random people data was not returned", err);
       })
-  })
+  }, [])
 
   const addNewMember = member => {
     setMembers([...members, member]);
