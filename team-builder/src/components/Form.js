@@ -12,7 +12,7 @@ const TeamMemberForm = props => {
     };
     const submitForm = event => {
         event.preventDefault();
-        //props.addNewMember(member); <---- not sure
+        props.addNewMember(member);
         setMember({ name: "", email: "", role: "" });
     };
     return (
